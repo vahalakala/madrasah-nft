@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 
 export async function POST(req) {
-  const PINATA_JWT = process.env.NEXT_PUBLIC_PINATA_JWT;
+  // Pakai env var tanpa NEXT_PUBLIC_ agar tidak ter-expose ke frontend
+  const PINATA_JWT = process.env.PINATA_JWT;
 
   const formData = await req.formData();
   const file = formData.get('file');
